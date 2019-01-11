@@ -1,17 +1,17 @@
-export namespace d3Types {
-  export type d3Node = {
-    id: string,
-    group: number
-  };
+import * as d3 from 'd3';
 
-  export type d3Link = {
-    source: string,
-    target: string,
-    value: number
-  };
+export interface d3Node extends d3.SimulationNodeDatum {
+    id: string;
+    group: number;
+}
 
-  export type d3Graph = {
+export interface d3Link extends d3.SimulationLinkDatum<d3Node> {
+    value: number;
+}
+
+export type d3Graph = {
     nodes: d3Node[],
     links: d3Link[]
-  };
-}
+};
+
+export type d3Simulation = d3.Simulation<d3Node, d3Link>;

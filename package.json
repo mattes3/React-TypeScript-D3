@@ -3,9 +3,16 @@
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
-    "react-dom": "^15.6.1",
-    "react-scripts-ts": "2.1.0",
-    "react-test-renderer": "^15.6.1"
+    "@types/chai": "^4.0.0",
+    "@types/d3": "^4.9.0",
+    "@types/enzyme": "^2.7.6",
+    "@types/mocha": "^2.2.40",
+    "@types/node": "^10.12.18",
+    "@types/react": "^16.7.18",
+    "@types/react-dom": "^16.0.11",
+    "tslint": "^5.2.0",
+    "tslint-eslint-rules": "^4.0.0",
+    "typescript": "^3.2.2"
   },
   "scripts": {
     "start": "react-scripts-ts start",
@@ -13,21 +20,15 @@
     "test": "mocha --compilers tsx:ts-node/register --recursive \"./tests/**/*test.ts*\" --require ignore-styles"
   },
   "dependencies": {
-    "@types/chai": "^4.0.0",
-    "@types/d3": "^4.9.0",
-    "@types/enzyme": "^2.7.6",
-    "@types/mocha": "^2.2.40",
-    "@types/react": "^15.0.21",
-    "@types/react-dom": "^15.5.1",
     "chai": "^4.0.1",
     "d3": "^4.9.1",
     "enzyme": "^2.8.2",
     "enzyme-to-json": "^1.5.1",
     "mocha": "^3.2.0",
     "prop-types": "^15.5.10",
-    "react": "^15.5.3",
-    "react-dom": "^15.5.3",
-    "tslint": "^5.2.0",
-    "tslint-eslint-rules": "^4.0.0"
+    "react": "^16.7.0",
+    "react-container-dimensions": "^1.4.1",
+    "react-dom": "^16.7.0",
+    "react-scripts-ts": "3.1.0"
   }
 }

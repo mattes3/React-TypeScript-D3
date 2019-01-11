@@ -1,13 +1,21 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import App from './components/App';
 import './styles/index.css';
-import data from "./miserables";
+
+import * as React from 'react';
+import ContainerDimensions from 'react-container-dimensions';
+import * as ReactDOM from 'react-dom';
+
+import App from './components/App';
+import data from './miserables';
 
 ReactDOM.render(
-  <App
-    width={window.screen.availWidth}
-    height={window.screen.availHeight}
-    graph={data} />,
-  document.getElementById('root')
+    <ContainerDimensions>
+        {({ width, height }) =>
+            <App
+                width={width}
+                height={height}
+                graph={data}
+            />
+        }
+    </ContainerDimensions>,
+    document.getElementById('root')
 );

@@ -5,8 +5,8 @@ import Links from "../src/components/links";
 import data from "../src/miserables";
 
 describe("Links", () => {
-  it("renders the links", () => {
-    const wrapper = shallow(<Links links={data.links}/>);
-    expect(wrapper.children().length).to.equal(data.links.length);
-  });
+    it("renders the links", () => {
+        const wrapper = shallow(<Links links={data.links} />);
+        expect(wrapper.children().length).to.equal(data.links.length);
+    });
 });

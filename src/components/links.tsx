@@ -1,30 +1,40 @@
-import * as React from "react";
-import * as d3 from "d3";
-import { d3Types } from "../types";
+import * as d3 from 'd3';
+import * as React from 'react';
 
-class Link extends React.Component<{ link: d3Types.d3Link }, {}> {
-  ref: SVGLineElement;
+import { d3Link } from '../types';
 
-  componentDidMount() {
-    d3.select(this.ref).data([this.props.link]);
-  }
-
-  render() {
-    return <line className="link" ref={(ref: SVGLineElement) => this.ref = ref}
-      strokeWidth={Math.sqrt(this.props.link.value)} />;
-  }
+interface LinkProps {
+    link: d3Link;
 }
 
-export default class Links extends React.Component<{ links: d3Types.d3Link[] }, {}> {
-  render() {
-    const links = this.props.links.map((link: d3Types.d3Link, index: number) => {
-      return <Link key={index} link={link} />;
-    });
+class Link extends React.Component<LinkProps> {
+    ref: React.RefObject<SVGLineElement>;
 
-    return (
-      <g className="links">
-        {links}
-      </g>
-    );
-  }
+    constructor(props: LinkProps) {
+        super(props);
+        this.ref = React.createRef<SVGLineElement>();
+    }
+
+    componentDidMount() {
+        d3.select(this.ref.current).data([this.props.link]);
+    }
+
+    render() {
+        return <line className="link" ref={this.ref}
+            strokeWidth={Math.sqrt(this.props.link.value)} />;
+    }
+}
+
+export default class Links extends React.Component<{ links: d3Link[] }> {
+    render() {
+        const links = this.props.links.map((link: d3Link, index: number) => {
+            return <Link key={index} link={link} />;
+        });
+
+        return (
+            <g className="links">
+                {links}
+            </g>
+        );
+    }
 }
